@@ -26,6 +26,7 @@
 
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -251,9 +252,9 @@ input,button,textarea{
 .inline-image{
     width: 7rem;
     height: 7rem;
-    background:url("/images/astronaut.png");
+    background:url("/images/favpng_vaporwave-sticker-image-aesthetics.png");
     background-size: cover;
-    border-radius: 50%;
+  
     border-bottom-left-radius: 0;
  
 }
@@ -294,3 +295,123 @@ input,button,textarea{
     bottom: 1rem;
     right: -1.5rem;
 }
+
+
+/* about me section */
+
+.d-grid{
+    display: grid;
+
+}
+
+.section:not(.herd)::before{
+    content: "";
+    position: absolute;
+    top:35%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:80vw;
+    height: 80vw;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255,101,118,.08)0%,rgba(255,101,118,0)100%);
+    z-index: -1;
+}
+
+.section-description{
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+
+}
+
+.description{
+    text-transform: uppercase;
+    font-weight: 300;
+   
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.description-image{
+    width: 25rem;
+    height: 25rem;
+    margin: 0 auto;
+   
+}
+
+
+.description-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}   
+
+
+
+
+.tech-stack{
+    max-width: 50rem;
+    grid-template-columns: repeat(auto-fit,minmax(5rem,1fr));
+    gap: 2.5rem;
+}
+
+.tech-stack-item{
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+.tech-stack-item i{
+    font-size: 5rem;
+    opacity: .5;
+    color:red;
+
+}
+
+
+.dark-theme .tech-stack-item i{
+    opacity: .8;
+}
+
+
+.tech-stack-item::before,
+.tech-stack-item::after{
+    position: absolute;
+    top: -1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform .5s, opcity .5s;
+}
+
+
+.tech-stack-item::before{
+    content: '';
+    border: 1rem solid transparent;
+    border-top-color: var(--dark-color);
+    transform: translateY(0);
+    z-index: 5;
+
+}
+
+.tech-stack-item::after{
+    content: attr(data-tooltip);
+    width: max-content;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: .5rem 1rem;
+    border-radius: .4rem;
+    }
+
+
+    .tech-stack-item:hover::before{
+        opacity: 1;
+        transform: translateY(-.6rem);
+    }
+
+
+    .tech-stack-item:hover::after{
+        opacity: 1;
+        transform: translateY(calc(-100%+ -.5rem));
+    }
